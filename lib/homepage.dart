@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/controller/listController.dart';
 import 'package:getx/controller/tabContoller.dart';
 import 'package:getx/pageone.dart';
 
@@ -11,7 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TabControllers controller = Get.put(TabControllers());
+  ListController listController = Get.find();
+  TabControllers controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +40,25 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: BorderRadius.circular(12)),
                 );
               }),
+              SizedBox(
+                height: 10,
+              ),
+              Obx(() => Container(
+                    padding: EdgeInsets.all(20),
+                    width: 100,
+                    height: 100,
+                    child: Center(
+                        child: Text(
+                      listController.getList.toString(),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 19),
+                    )),
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 53, 227, 250),
+                        borderRadius: BorderRadius.circular(12)),
+                  )),
               SizedBox(
                 height: 10,
               ),

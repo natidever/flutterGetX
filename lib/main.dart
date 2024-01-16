@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:getx/homepage.dart';
 import 'package:get/get.dart';
+import 'package:getx/helper/init.dart' as di;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
+
   runApp(const MyApp());
 }
 
